@@ -23,6 +23,30 @@ const robotOptions = `
 `
 
 /**
+ * Prompt the user to define the boundary for the robot.
+ * @returns {Promise<{ enforceBoundary: boolean, boundaryLimit: number }>}
+ */
+const getBoundarySettings = async () => {
+  return new Promise((resolve) => {
+    rl.question('Enable boundary enforcement? (yes/no): ', (enableBoundary) => {
+      if (enableBoundary.toLowerCase() === 'yes') {
+        rl.question('Enter the boundary limit (positive integer): ', (limit) => {
+          const boundaryLimit = parseInt(limit, 10)
+          if (isNaN(boundaryLimit) || boundaryLimit <= 0) {
+            console.log('Invalid boundary limit. Defaulting to 5.')
+            resolve({ enforceBoundary: true, boundaryLimit: 5 })
+          } else {
+            resolve({ enforceBoundary: true, boundaryLimit })
+          }
+        })
+      } else {
+        resolve({ enforceBoundary: false, boundaryLimit: 0 })
+      }
+    })
+  })
+}
+
+/**
  * Main function to control the robot via user commands.
  * This function handles user input, processes commands, and manages the robot's state.
  */
@@ -31,8 +55,11 @@ const main = async () => {
   console.log('Command the robot with:')
   console.log(robotOptions)
 
-  // Initialize a new robot instance.
-  const robot = new Robot()
+  // Get boundary settings from the user.
+  const { enforceBoundary, boundaryLimit } = await getBoundarySettings()
+
+  // Initialize the robot with user-defined boundaries.
+  const robot = new Robot(enforceBoundary, boundaryLimit)
 
   // Handle program termination (e.g., Ctrl+C).
   rl.on('SIGINT', () => {

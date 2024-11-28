@@ -5,10 +5,10 @@ Welcome to the **Mars Robot Code Challenge** repository! This project simulates 
 ---
 
 ## Features
-- Define a plateau grid for the robot to navigate.
+- Define a plateau grid for the robot to navigate with optional boundary enforcement.
 - Simulate a robot's movement, turning, and stopping.
 - Input command sequences to control the robot.
-- Prevent the robot from falling off the plateau.
+- Prevent the robot from falling off the plateau when boundaries are enabled.
 
 ---
 
@@ -40,16 +40,25 @@ To run this project, ensure you have the following installed:
 
 ## Usage
 
-You can run `npm start` to execute the program. 
+### Starting the Program
+Run the program using: 
+`npm start` 
+
+You will be prompted to define boundary enforcement:
+
+- Enable boundaries: Enter yes to enforce boundaries, and then specify the maximum boundary limit for both axes.
+- Disable boundaries: Enter no to allow the robot to move without restrictions.
 
 ### Input
-Commands can be entered in lowercase or uppercase.
+The program accepts the following commands, which can be entered in lowercase or uppercase:
 
-The following inputs will move the robot `L, R, M`.
+* L: Turn the robot left.
+* R: Turn the robot right.
+* M: Move the robot forward in its current direction.
+* ?: Display help instructions.
+* Q: Quit the program.
 
-To output the instructions again you can use `?`.
-
-To quit you can use `Q` or `CTRL-C`.
+Additionally, pressing CTRL-C will shut down the program.
 
 ---
 
