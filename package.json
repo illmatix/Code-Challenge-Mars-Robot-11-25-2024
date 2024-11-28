@@ -1,0 +1,22 @@
+{
+  "name": "code-challenge Mars Robot command",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/robot-cli.js",
+  "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "start": "node src/robot-cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/illmatix/code-challenge-11-25-2024.git"
+  },
+  "private": true,
+  "devDependencies": {
+    "stylelint": "^16.11.0",
+    "stylelint-config-standard": "^36.0.1",
+    "vitest": "^2.1.6"
+  }
+}
