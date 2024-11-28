@@ -40,30 +40,16 @@ To run this project, ensure you have the following installed:
 
 ## Usage
 
+You can run `npm start` to execute the program. 
+
 ### Input
-The program takes the following input:
-1. **Plateau Dimensions**: Define the size of the grid (e.g., `5 5` for a 5x5 grid).
-2. **Initial Position and Orientation**: Set the robot's starting point and direction (e.g., `1 2 N` where `N` is North).
-3. **Command Sequence**: A series of commands to control the robot:
-   - `L` (turn left)
-   - `R` (turn right)
-   - `M` (move forward)
+Commands can be entered in lowercase or uppercase.
 
-### Output
-The program outputs the robot's final position and orientation after processing all commands.
+The following inputs will move the robot `L, R, M`.
 
-### Example
-**Input:**
-```
-5 5
-1 2 N
-LMLMLMLMM
-```
+To output the instructions again you can use `?`.
 
-**Output:**
-```
-1 3 N
-```
+To quit you can use `Q` or `CTRL-C`.
 
 ---
 
